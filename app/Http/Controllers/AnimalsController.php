@@ -13,7 +13,7 @@ class AnimalsController extends Controller
     public function __construct(AnimalService $animalService)
     {
         $this->animalService = $animalService;
-        // $this->middleware('auth:api');
+        $this->middleware('auth:api')->only(['store', 'update', 'destroy']);
     }
     /**
      * Display a listing of the resource.

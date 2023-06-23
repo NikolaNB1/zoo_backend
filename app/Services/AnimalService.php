@@ -11,7 +11,7 @@ class AnimalService
 
     public function showAnimals(Request $request)
     {
-        $animals = Animal::get();
+        $animals = Animal::paginate(10);
 
         return $animals;
     }
@@ -22,7 +22,7 @@ class AnimalService
             'name' => 'required|min:3|string',
             'type' => 'required|string',
             'habitat' => 'required|string',
-            'rare' => 'required|boolean',
+            'rare' => 'boolean',
             'count_in_zoo' => 'required|integer',
             'favorite_food' => 'required|string',
         ]);
@@ -52,7 +52,7 @@ class AnimalService
             'name' => 'required|min:3|string',
             'type' => 'required|string',
             'habitat' => 'required|string',
-            'rare' => 'required|boolean',
+            'rare' => 'boolean',
             'count_in_zoo' => 'required|integer',
             'favorite_food' => 'required|string',
         ]);
